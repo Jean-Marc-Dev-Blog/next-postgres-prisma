@@ -10,6 +10,7 @@
     "start:db": "docker run --rm -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust postgres"
   },
   "dependencies": {
+    "@prisma/client": "^5.8.1",
     "next": "14.1.0",
     "prisma": "^5.8.1",
     "react": "^18",
