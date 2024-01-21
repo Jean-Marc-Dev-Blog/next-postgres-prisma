@@ -21,3 +21,19 @@ export const PATCH = async (req: NextRequest, route: { params: { id: string }}) 
     return NextResponse.json("Something went wrong updating the user", { status: 500 });
   }
 }
+
+export const DELETE = async (req: NextRequest, route: { params: { id: string }}) => {
+  const { id: userId } = route.params;
+
+  try {
+    const user = await prisma.user.delete({ 
+      where: { id: parseInt(userId) }, 
+    });
+
+    return NextResponse.json({ user });
+  } catch (error) {
+    console.error(error);
+
+    return NextResponse.json("Something went wrong deleting the user", { status: 500 });
+  }
+}
